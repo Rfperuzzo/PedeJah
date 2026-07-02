@@ -7,6 +7,7 @@ Este documento define como agentes de IA devem trabalhar no projeto PedeJah. Ele
 ## Regras Obrigatórias
 
 - Sempre ler toda a documentação em `docs/` antes de modificar o projeto.
+- Sempre ler `docs/VISION.md` antes de iniciar qualquer Sprint.
 - Nunca implementar funcionalidades fora da sprint atual.
 - Nunca iniciar a próxima sprint sem aprovação explícita.
 - Nunca alterar páginas, componentes ou estilos quando a sprint for apenas documental.
@@ -35,17 +36,18 @@ Este documento define como agentes de IA devem trabalhar no projeto PedeJah. Ele
 
 ## Antes de Começar Uma Sprint
 
-1. Ler `docs/PROJECT.md`.
-2. Ler `docs/DESIGN.md`.
-3. Ler `docs/PRODUCT_RULES.md`.
-4. Ler `docs/STOREFRONT.md` quando a sprint envolver frontend público do cliente final.
-5. Ler `docs/ROADMAP.md`.
-6. Ler `docs/ARCHITECTURE.md`.
-7. Ler `docs/DECISIONS.md`.
-8. Ler este arquivo.
-9. Confirmar o escopo da sprint solicitada.
-10. Identificar explicitamente o que não deve ser feito.
-11. Para qualquer tela, responder internamente às perguntas de produto antes de implementar.
+1. Ler `docs/VISION.md`.
+2. Ler `docs/PROJECT.md`.
+3. Ler `docs/DESIGN.md`.
+4. Ler `docs/PRODUCT_RULES.md`.
+5. Ler `docs/STOREFRONT.md` quando a sprint envolver frontend público do cliente final.
+6. Ler `docs/ROADMAP.md`.
+7. Ler `docs/ARCHITECTURE.md`.
+8. Ler `docs/DECISIONS.md`.
+9. Ler este arquivo.
+10. Confirmar o escopo da sprint solicitada.
+11. Identificar explicitamente o que não deve ser feito.
+12. Para qualquer tela, responder internamente às perguntas de produto antes de implementar.
 
 ## Perguntas de Produto Antes de Implementar Telas
 

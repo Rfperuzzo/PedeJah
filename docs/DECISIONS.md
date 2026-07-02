@@ -358,3 +358,27 @@ Consequências:
 - Componentes visuais do Storefront devem consumir contratos de dados e não conhecer a origem dos dados.
 - Hoje os dados podem vir de mocks; futuramente devem vir de banco, API e painel administrativo.
 - Componentes específicos por segmento só devem existir se houver necessidade real que um componente genérico não resolva.
+
+## 2026-07-02 - Criação do Documento Central de Visão do Produto
+
+Status: Aprovada.
+
+Contexto:
+
+O PedeJah já possui documentação de produto, arquitetura, design, Storefront, roadmap e regras para IA, mas precisava de um documento central e permanente que explicasse a visão do produto antes de qualquer discussão técnica.
+
+Decisão:
+
+Criar `docs/VISION.md` como documento central de visão do produto.
+
+Motivo:
+
+Novos agentes, desenvolvedores e IAs precisam entender que o PedeJah é uma plataforma SaaS multiestabelecimento para alimentação, composta por Storefront e Painel Administrativo, com personalização por configuração da loja e não por código específico por cliente ou nicho.
+
+Consequências:
+
+- `docs/VISION.md` deve ser lido antes de iniciar qualquer Sprint.
+- Decisões de design, arquitetura, frontend, backend e painel administrativo devem ser avaliadas contra a visão do produto.
+- A Jah Burgers permanece apenas como demo.
+- O Storefront deve continuar separado entre Engine reutilizável e Store Configuration.
+- Qualquer decisão que afaste o projeto dessa visão deve ser revista antes da implementação.

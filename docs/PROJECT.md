@@ -154,6 +154,7 @@ app/
 components/
   header.tsx
 docs/
+  VISION.md
   PROJECT.md
   DESIGN.md
   PRODUCT_RULES.md
@@ -240,6 +241,7 @@ Cada sprint deve ter objetivo claro, declarar o que será e o que não será imp
 
 Antes de qualquer alteração futura, a pessoa ou IA responsável deve ler:
 
+- `docs/VISION.md` para entender a visão central do produto e orientar decisões futuras.
 - `docs/PROJECT.md` para visão geral e regras de produto.
 - `docs/DESIGN.md` para padrões visuais.
 - `docs/PRODUCT_RULES.md` para regras de negócio e conversão.
