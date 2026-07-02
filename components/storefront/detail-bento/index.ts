@@ -1,0 +1,1 @@
+export { DetailBento } from "./DetailBento";

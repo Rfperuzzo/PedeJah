@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LUMINA GRILL | Jah Burgers</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200;300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#241a00",
+                    "surface-bright": "#3d392f",
+                    "tertiary": "#bfcdff",
+                    "surface": "#16130b",
+                    "surface-container": "#231f17",
+                    "primary": "#f2ca50",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-container": "#554300",
+                    "on-surface-variant": "#d0c5af",
+                    "surface-dim": "#16130b",
+                    "on-primary": "#3c2f00",
+                    "on-tertiary-container": "#254188",
+                    "tertiary-fixed": "#dbe1ff",
+                    "on-error": "#690005",
+                    "surface-container-highest": "#38342b",
+                    "secondary-fixed": "#e5e2de",
+                    "secondary-fixed-dim": "#c9c6c3",
+                    "surface-variant": "#38342b",
+                    "primary-fixed": "#ffe088",
+                    "on-tertiary": "#082b72",
+                    "on-tertiary-fixed-variant": "#27438a",
+                    "tertiary-fixed-dim": "#b4c5ff",
+                    "background": "#16130b",
+                    "outline": "#99907c",
+                    "tertiary-container": "#97b0ff",
+                    "secondary-container": "#474744",
+                    "on-secondary-container": "#b7b5b1",
+                    "inverse-primary": "#735c00",
+                    "outline-variant": "#4d4635",
+                    "surface-tint": "#e9c349",
+                    "surface-container-low": "#1f1b13",
+                    "error": "#ffb4ab",
+                    "on-secondary-fixed": "#1c1c1a",
+                    "error-container": "#93000a",
+                    "on-primary-fixed-variant": "#574500",
+                    "surface-container-high": "#2d2a21",
+                    "on-secondary": "#31302e",
+                    "on-surface": "#eae1d4",
+                    "inverse-on-surface": "#343027",
+                    "on-secondary-fixed-variant": "#474744",
+                    "surface-container-lowest": "#110e07",
+                    "primary-fixed-dim": "#e9c349",
+                    "primary-container": "#d4af37",
+                    "on-background": "#eae1d4",
+                    "on-tertiary-fixed": "#00174b",
+                    "inverse-surface": "#eae1d4",
+                    "secondary": "#c9c6c3"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "container-padding-desktop": "64px",
+                    "container-padding-mobile": "24px",
+                    "gutter": "24px",
+                    "section-gap": "80px"
+            },
+            "fontFamily": {
+                    "title-md": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"],
+                    "label-caps": ["Hanken Grotesk"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "title-md": ["20px", {"lineHeight": "28px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "0px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.15em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "0.02em", "fontWeight": "300"}],
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "0.05em", "fontWeight": "200"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "0.03em", "fontWeight": "300"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0a0a0a;
+            color: #eae1d4;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-vignette {
+            background: linear-gradient(to bottom, rgba(10,10,10,0) 0%, rgba(10,10,10,0.4) 60%, rgba(10,10,10,1) 100%);
+        }
+        .gold-glow {
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.05);
+        }
+        .card-border {
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        ::-webkit-scrollbar { width: 0px; background: transparent; }
+    </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<!-- Top Navigation Anchor -->
+<nav class="fixed top-0 w-full z-50 bg-transparent backdrop-blur-md flex items-center justify-between px-container-padding-mobile py-4 no-border">
+<button class="scale-95 active:transition-transform hover:text-primary-fixed-dim transition-colors text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-display-lg text-title-md tracking-[0.2em] text-primary">LUMINA GRILL</h1>
+<button class="scale-95 active:transition-transform hover:text-primary-fixed-dim transition-colors text-primary">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+</nav>
+<!-- Hero Section -->
+<section class="relative h-[100vh] w-full overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCYel09QWbXdPSI5pVmbW8cZ9hEuFZzDOSVwoH3dfb0DTe4n8ivHqLbmyTe85aEnnxMYgio9U9Wwa_7SjC9ahWEVYzy9d_I3l3ACpqJQEwfG4sYQv8PTAreeOY9zpErtCOYWWeUtde7fm676Ak6agaXVI9TO23Lw1fcCn0Uf_E1O2Ej6wtY3beUL4cc6Nr1c6W2wCeLqIGo3tVAlU3iEdYpCPSYeOHgnyV3ko-P9BHQuA2bmdFv2YMC4Q')"></div>
+<div class="absolute inset-0 hero-vignette"></div>
+<div class="absolute bottom-0 left-0 w-full px-container-padding-mobile pb-24">
+<div class="space-y-4">
+<span class="font-label-caps text-label-caps text-primary tracking-[0.3em]">CRAFTED PRECISION</span>
+<h2 class="font-display-lg text-display-lg leading-tight">Elevated<br/>Gastronomy</h2>
+<div class="flex items-center gap-4 pt-6">
+<button class="bg-primary text-on-primary-fixed px-8 py-4 rounded-full font-label-caps text-label-caps transition-transform active:scale-95">RESERVE NOW</button>
+</div>
+</div>
+</div>
+</section>
+<!-- The Experience Intro -->
+<section class="px-container-padding-mobile py-section-gap max-w-2xl mx-auto text-center space-y-8">
+<span class="font-label-caps text-label-caps text-primary">THE EXPERIENCE</span>
+<p class="font-headline-lg-mobile text-headline-lg-mobile leading-relaxed text-on-surface">
+            A meticulous symphony of flame, prime cuts, and gold-standard service. We transform the burger into a culinary masterpiece.
+        </p>
+<div class="w-12 h-[1px] bg-primary/30 mx-auto"></div>
+</section>
+<!-- Quick Info Dashboard -->
+<section class="px-container-padding-mobile pb-16">
+<div class="grid grid-cols-3 gap-4 p-6 bg-surface-container rounded-lg card-border gold-glow">
+<div class="text-center space-y-2">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<p class="font-label-caps text-[10px] text-on-surface-variant">MAYFAIR</p>
+</div>
+<div class="text-center space-y-2 border-x border-outline-variant/30">
+<span class="material-symbols-outlined text-primary">schedule</span>
+<p class="font-label-caps text-[10px] text-on-surface-variant">OPEN NOW</p>
+</div>
+<div class="text-center space-y-2">
+<span class="material-symbols-outlined text-primary">delivery_dining</span>
+<p class="font-label-caps text-[10px] text-on-surface-variant">25-35 MIN</p>
+</div>
+</div>
+</section>
+<!-- Featured Section: Chef's Recommendations -->
+<section class="space-y-10 pb-section-gap">
+<div class="px-container-padding-mobile flex justify-between items-end">
+<div class="space-y-1">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile">Chef's Selection</h3>
+<p class="font-label-caps text-label-caps text-on-surface-variant/60">HAND-PICKED DELIGHTS</p>
+</div>
+<button class="text-primary font-label-caps text-label-caps">VIEW ALL</button>
+</div>
+<div class="flex overflow-x-auto gap-6 px-container-padding-mobile no-scrollbar snap-x">
+<!-- Recommendation 1 -->
+<div class="min-w-[280px] snap-center space-y-4 group">
+<div class="aspect-[4/5] rounded-lg overflow-hidden card-border bg-surface-container relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A gourmet truffle burger with melted Gruyere cheese, caramelized onions, and fresh arugula, photographed in a low-key cinematic lighting style with deep shadows and golden highlights. The background is a minimalist dark restaurant interior." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjJXaMUoKRF1XqwRZ14yntoSc_dvTrIT2_gUk6bbKz91lkWOGFXJa0bkl9QzW2UR1I4tJJGrDsYFFFN3Ym1UsRubY5BrBEXdTltGtnDLEi1qLOerCvIjGtzD-DVAsgQ3RJMUNV-B1fwvTVf7G4f-6gtGTZbtytUAXuhLPgfhcGY4egxVZVQNL7t7T9TJivU7HrVRZ-ut611VwEw3Uu3zbv4DZhhBUdTYe6uD_76VmkNizqH_RxxbDjBQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<span class="bg-primary/20 backdrop-blur-md text-primary px-3 py-1 rounded-full text-[10px] font-label-caps">SIGNATURE</span>
+</div>
+</div>
+<div class="space-y-1">
+<h4 class="font-title-md text-title-md">Truffle Reserve</h4>
+<p class="text-primary font-body-md">£24.00</p>
+</div>
+</div>
+<!-- Recommendation 2 -->
+<div class="min-w-[280px] snap-center space-y-4 group">
+<div class="aspect-[4/5] rounded-lg overflow-hidden card-border bg-surface-container relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A high-end Wagyu beef burger with a charcoal-infused black bun, topped with edible gold leaf and a rich bordelaise sauce. The burger is presented on a dark slate plate with dramatic side-lighting and soft ambient smoke." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkf36P2-VLDW2RDTkfrDGSAFIPcvEWxYJMb6N4Mhwg1ezdNdGgRdJbWZ0OhLPnYtjuJgvJmt30QdZVbIaTZnCJCby0bC-rJ8-MQ20-mzvDrEaXL3jBaku5u7sHQJrkLSbMbKUxv831fI93bCUbb5QVAC6vcitJlvlKjUtF9Ia457KNb4jbTJyUu6VryKOrMigLqLnLUei8-YmGJUUVh0_ecPFx8W5BC0ti9DK3HQWUlHhj-I3u-i7v0g"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<span class="bg-white/10 backdrop-blur-md text-white px-3 py-1 rounded-full text-[10px] font-label-caps">LIMITED</span>
+</div>
+</div>
+<div class="space-y-1">
+<h4 class="font-title-md text-title-md">Midnight Wagyu</h4>
+<p class="text-primary font-body-md">£38.00</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Signature Product Display: The Jah King -->
+<section class="px-container-padding-mobile py-section-gap bg-surface-container-low rounded-t-xl card-border border-b-0">
+<div class="max-w-4xl mx-auto space-y-12">
+<div class="text-center space-y-2">
+<span class="font-label-caps text-label-caps text-primary tracking-[0.2em]">CROWN JEWEL</span>
+<h3 class="font-display-lg text-headline-lg-mobile md:text-display-lg">The Jah King</h3>
+</div>
+<div class="relative aspect-square rounded-lg overflow-hidden gold-glow card-border">
+<img class="w-full h-full object-cover" data-alt="A towering, majestic double-patty cheeseburger with perfectly melted sharp cheddar, crisp heirloom lettuce, and a glossy brioche bun. The lighting is intensely focused on the textures of the meat and cheese, creating a luxurious and mouth-watering aesthetic against a deep charcoal background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9hIPLYt0jukiVkVN3DJmHWDqvOCsz22uyVVy_mhLe943wYe5AQf8gKQq0mU3UhmZPBk0VCNMMrTM3bbJHgfv5mBTLTquqjTGZ51fc5YYp4e_DMfXeyXWUJ7Z-ZKXQZbh25sXi8ZBvRFHPl2-lQQrnbs6sYirEu6VtSnL7ynYfhuYVvu7V7ogmr8dNVYsoUjQcyvC1j6JFxj0zVfNQ1y6iVQsWsCTwrjKWROs4ZaBqscrCotCigNdGgg"/>
+</div>
+<div class="space-y-6">
+<div class="flex justify-between items-center border-b border-outline-variant/30 pb-4">
+<p class="font-body-lg text-body-lg text-on-surface max-w-[70%]">
+                        Double-aged Galician beef, vintage cheddar, house-fermented pickles, and our secret gold-dust aioli.
+                    </p>
+<span class="font-display-lg text-headline-lg text-primary">£29</span>
+</div>
+<div class="flex gap-4">
+<button class="flex-1 bg-primary text-on-primary-fixed py-5 rounded-full font-label-caps text-label-caps tracking-widest active:scale-95 transition-transform">
+                        ADD TO BAG
+                    </button>
+<button class="w-16 h-16 flex items-center justify-center rounded-full border border-primary/40 text-primary active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Ingredients/Details Bento -->
+<section class="px-container-padding-mobile py-section-gap grid grid-cols-2 gap-4">
+<div class="col-span-2 p-8 rounded-lg bg-surface-container-high card-border flex flex-col justify-center items-center text-center space-y-4">
+<span class="material-symbols-outlined text-primary text-4xl">workspace_premium</span>
+<h4 class="font-title-md text-title-md">Sourced Excellence</h4>
+<p class="text-on-surface-variant font-body-md">We exclusively use dry-aged beef from sustainable heritage farms, ensuring unparalleled depth of flavor in every bite.</p>
+</div>
+<div class="p-6 rounded-lg bg-surface-container card-border space-y-2">
+<h5 class="font-label-caps text-label-caps text-primary">TEMP</h5>
+<p class="font-title-md text-title-md">Medium Rare</p>
+</div>
+<div class="p-6 rounded-lg bg-surface-container card-border space-y-2">
+<h5 class="font-label-caps text-label-caps text-primary">BREAD</h5>
+<p class="font-title-md text-title-md">Gold Brioche</p>
+</div>
+</section>
+<!-- Footer Filler for Scroll -->
+<footer class="pb-32 px-container-padding-mobile text-center opacity-30">
+<p class="font-label-caps text-[10px] tracking-[0.4em]">ESTABLISHED IN EXCELLENCE</p>
+</footer>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-lg bg-surface-container-lowest/80 backdrop-blur-xl border-t border-outline-variant/10 shadow-lg flex justify-around items-center h-20 px-6 pb-4">
+<button class="flex flex-col items-center gap-1 text-primary scale-110 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home_iot_device</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant opacity-60 hover:text-primary-fixed transition-all active:scale-90">
+<span class="material-symbols-outlined">restaurant_menu</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant opacity-60 hover:text-primary-fixed transition-all active:scale-90">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant opacity-60 hover:text-primary-fixed transition-all active:scale-90">
+<span class="material-symbols-outlined">person</span>
+</button>
+</nav>
+<script>
+        // Simple parallax and appearance effects
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroImage = document.querySelector('.absolute.bg-cover');
+            if (heroImage) {
+                heroImage.style.transform = `translateY(${scrolled * 0.4}px)`;
+            }
+        });
+
+        // Tap interactions
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.classList.add('scale-95');
+                setTimeout(() => this.classList.remove('scale-95'), 150);
+            });
+        });
+    </script>
+</body></html>
