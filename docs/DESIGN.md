@@ -126,6 +126,8 @@ Transmitir confiança e credibilidade, mostrando dados essenciais como nome, loc
 
 O frontend público da loja deve permitir identidade visual por estabelecimento sem comprometer consistência e usabilidade.
 
+Essa customização deve acontecer por dados e tokens de configuração, não por componentes específicos para cada tipo de estabelecimento. A mesma estrutura visual base deve atender hamburguerias, açaíterias, pizzarias, cafeterias, confeitarias, restaurantes, food trucks e deliverys locais.
+
 Elementos customizáveis previstos:
 
 - Logo da loja.
@@ -140,6 +142,14 @@ Elementos customizáveis previstos:
 - Categorias.
 - Produtos.
 - Tema visual derivado da identidade da loja.
+- Slogan.
+- Horário de funcionamento.
+- Promoções.
+- Imagens.
+- Preços.
+- Adicionais.
+- Ingredientes.
+- Ordem dos blocos permitidos.
 
 Regras:
 
@@ -148,6 +158,24 @@ Regras:
 - O layout deve funcionar mesmo sem logo ou banner enviados pela loja.
 - O tema da loja não pode quebrar legibilidade, responsividade ou acessibilidade.
 - A estrutura visual deve ser consistente entre lojas, mudando apenas tokens e conteúdo.
+- Componentes visuais devem consumir dados de configuração e manter comportamento consistente entre lojas.
+- Diferenças de segmento devem aparecer em conteúdo, categorias, produtos, imagens, adicionais e tema, não em componentes duplicados.
+
+## Storefront Engine vs Store Configuration
+
+O Design System deve proteger a separação entre a estrutura base do Storefront e a identidade de cada loja.
+
+Storefront Engine:
+
+- Define composição, hierarquia, responsividade, estados, padrões de navegação e componentes reutilizáveis.
+- Inclui blocos como `StoreHero`, `StoreInfo`, `StoreSearch`, `CategorySelector`, `ProductGrid`, `ProductList`, `ProductCard`, `ProductDetail`, `Cart`, `Checkout` e `OrderTracking`.
+- Deve manter a experiência principal consistente para todos os clientes do PedeJah.
+
+Store Configuration:
+
+- Define conteúdo e identidade de cada estabelecimento: nome, logo, banner, cores, slogan, cidade, status, horários, modalidades, promoções, categorias, produtos, imagens, preços, adicionais, ingredientes e ordem dos blocos permitidos.
+- Pode mudar a personalidade da loja sem alterar a responsabilidade dos componentes.
+- Não deve criar variações visuais que prejudiquem contraste, leitura, responsividade ou conversão.
 
 ## Loja de Demonstração
 
@@ -161,6 +189,8 @@ A loja fictícia usada nas primeiras sprints públicas será:
 - Modalidades: Entrega e Retirada.
 
 Essa loja deve orientar textos, exemplos, categorias e produtos mockados quando a sprint autorizar implementação.
+
+A Jah Burgers é apenas demonstração. O visual noir/dourado, textos, produtos e categorias associados a ela devem ser tratados como configuração ou mock da loja, não como identidade global do Storefront ou padrão obrigatório para outros segmentos.
 
 ## Tipografia
 

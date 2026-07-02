@@ -6,6 +6,31 @@ Este documento define regras de negócio e conversão para o frontend público d
 
 O PedeJah não deve ser tratado apenas como cardápio digital. A loja pública é uma ferramenta de vendas, e cada decisão deve ajudar o cliente final a encontrar produtos, confiar na loja e concluir um pedido.
 
+O PedeJah também não deve ser tratado como produto para uma loja específica. Ele é uma plataforma SaaS para vários tipos de estabelecimentos, incluindo hamburguerias, açaíterias, pizzarias, cafeterias, confeitarias, restaurantes, food trucks e deliverys locais. A Jah Burgers é apenas uma loja fictícia de demonstração.
+
+## Storefront Engine vs Store Configuration
+
+O comportamento principal da loja deve ser consistente para todos os clientes do PedeJah. A personalização de cada estabelecimento deve vir dos dados de configuração, não da criação de componentes específicos para cada loja.
+
+Storefront Engine:
+
+- Estrutura e comportamento reutilizável para descoberta, seleção, compra, checkout e acompanhamento.
+- Componentes como `StoreHero`, `StoreInfo`, `StoreSearch`, `CategorySelector`, `ProductGrid`, `ProductList`, `ProductCard`, `ProductDetail`, `Cart`, `Checkout` e `OrderTracking`.
+- Deve funcionar para qualquer tipo de loja suportada pelo PedeJah.
+
+Store Configuration:
+
+- Dados variáveis por cliente: nome, logo, banner, cores do tema, slogan, cidade, status, horários, modalidades, promoções, categorias, produtos, imagens, preços, adicionais, ingredientes e ordem dos blocos permitidos.
+- Hoje esses dados vêm de mocks.
+- Futuramente os mesmos dados devem vir de banco, API ou painel administrativo.
+
+Regras:
+
+- Nunca criar componente específico apenas para hamburgueria, açaíteria ou pizzaria se um componente genérico resolver.
+- Nunca colocar regra de negócio específica de uma loja dentro de componente visual.
+- Novas lojas devem ser adicionadas por novos mocks ou configurações, não por telas duplicadas.
+- Componentes devem consumir dados, não conhecer a origem dos dados.
+
 ## Princípios de Conversão
 
 - O cliente deve conseguir localizar qualquer item em poucos segundos.
@@ -45,7 +70,7 @@ O PedeJah não deve ser tratado apenas como cardápio digital. A loja pública �
 
 - Categorias devem ajudar o cliente a reduzir busca, não adicionar fricção.
 - Categorias principais devem ser fáceis de tocar em mobile.
-- O cliente deve entender rapidamente onde estão hambúrgueres, acompanhamentos, bebidas, combos e promoções.
+- O cliente deve entender rapidamente onde estão os principais grupos de produtos da loja, como hambúrgueres, açaís, pizzas, cafés, doces, pratos, bebidas, combos ou promoções, conforme a configuração do estabelecimento.
 - A navegação por categoria deve preservar contexto e não fazer o cliente se perder.
 
 ## Regras Para Ações de Compra

@@ -12,6 +12,21 @@ O desenvolvimento inicial do frontend não começará pela landing page instituc
 
 Essa escolha prioriza o valor central do produto: permitir que estabelecimentos apresentem sua loja, categorias e produtos de forma simples, clara e pronta para evoluir para carrinho e checkout.
 
+O PedeJah não está sendo criado para uma loja específica. Ele é uma plataforma SaaS para múltiplos tipos de estabelecimentos, como hamburguerias, açaíterias, pizzarias, cafeterias, confeitarias, restaurantes, food trucks e deliverys locais. A mesma estrutura base do Storefront deve atender esses clientes por configuração, sem duplicar telas ou criar componentes por tipo de loja.
+
+### Storefront Engine vs Store Configuration
+
+A experiência pública da loja deve ser separada em duas camadas:
+
+- Storefront Engine: estrutura, componentes e comportamentos reutilizáveis do Storefront.
+- Store Configuration: dados, conteúdo, tema e regras configuráveis de cada estabelecimento.
+
+O Storefront Engine deve ser genérico, reutilizável e configurável. Componentes como `StoreHero`, `StoreInfo`, `StoreSearch`, `CategorySelector`, `ProductGrid`, `ProductList`, `ProductCard`, `ProductDetail`, `Cart`, `Checkout` e `OrderTracking` devem funcionar para qualquer tipo de loja.
+
+A Store Configuration deve concentrar dados que mudam por cliente: nome da loja, logo, banner, cores do tema, slogan, cidade, status, horário de funcionamento, modalidades de entrega ou retirada, promoções, categorias, produtos, imagens, preços, adicionais, ingredientes e ordem dos blocos permitidos.
+
+Componentes devem consumir dados, não conhecer a origem desses dados. Hoje os dados vêm de mocks. Futuramente os mesmos contratos devem poder ser alimentados por banco, API ou painel administrativo.
+
 ### Loja Fictícia de Demonstração
 
 - Nome: Jah Burgers.
@@ -20,6 +35,8 @@ Essa escolha prioriza o valor central do produto: permitir que estabelecimentos 
 - Status: Aberta.
 - Tempo estimado: 35-45 min.
 - Modalidades: Entrega e Retirada.
+
+A Jah Burgers é apenas uma loja fictícia de demonstração para validar a experiência inicial. Ela não é o centro do produto e não deve gerar componentes, regras ou estruturas específicas de hamburgueria.
 
 ### Experiência Inicial do Cliente Final
 
@@ -53,6 +70,7 @@ Criar uma plataforma acessível, rápida e confiável para pequenos e médios ne
 - Criar uma experiência clara para operadores com diferentes níveis de familiaridade digital.
 - Evoluir o produto por sprints pequenas, sempre com validação antes de ampliar escopo.
 - Manter uma base técnica limpa, escalável e fácil de manter.
+- Garantir que o Storefront seja reutilizável por diferentes tipos de estabelecimento a partir de dados de configuração.
 
 ## Público-Alvo
 

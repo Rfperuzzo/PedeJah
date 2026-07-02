@@ -6,6 +6,8 @@ O Storefront é a experiência pública da loja contratante. É a interface que 
 
 O objetivo do Storefront é transformar interesse em pedido. Ele deve permitir que o cliente entenda rapidamente onde está comprando, veja se a loja está aberta, encontre produtos, personalize itens, revise o carrinho, finalize o pedido e acompanhe o andamento até a entrega ou retirada.
 
+O Storefront não pertence a uma loja específica. Ele é a estrutura base da plataforma SaaS do PedeJah para renderizar diferentes estabelecimentos, como hamburguerias, açaíterias, pizzarias, cafeterias, confeitarias, restaurantes, food trucks e deliverys locais. A Jah Burgers é apenas mock/demo.
+
 Quem utiliza:
 
 - Cliente final da loja.
@@ -44,6 +46,61 @@ Problema que resolve:
 - Nunca fazer o cliente procurar como avançar.
 - Nunca bloquear navegação por informações promocionais secundárias.
 - Estados de erro devem orientar recuperação.
+- A estrutura do Storefront deve ser genérica, reutilizável e configurável.
+- O comportamento principal deve ser consistente para todos os estabelecimentos.
+- A personalização deve vir de dados de configuração, não de componentes específicos por loja.
+
+## Storefront Engine vs Store Configuration
+
+### Storefront Engine
+
+A Engine do Storefront é composta por componentes e comportamentos reutilizáveis. Ela deve funcionar para qualquer tipo de loja suportada pelo PedeJah.
+
+Componentes previstos da engine:
+
+- `StoreHero`.
+- `StoreInfo`.
+- `StoreSearch`.
+- `CategorySelector`.
+- `ProductGrid` ou `ProductList`.
+- `ProductCard`.
+- `ProductDetail`.
+- `Cart`.
+- `Checkout`.
+- `OrderTracking`.
+
+Regras da engine:
+
+- Nunca criar componente específico apenas para hamburgueria, açaíteria, pizzaria ou outro segmento se um componente genérico resolver.
+- Nunca colocar regra de negócio específica de uma loja dentro de componente visual.
+- Componentes devem consumir dados, não conhecer a origem dos dados.
+- A mesma rota e a mesma estrutura devem conseguir renderizar lojas diferentes no futuro.
+
+### Store Configuration
+
+A configuração da loja contém os dados que mudam por cliente:
+
+- Nome da loja.
+- Logo.
+- Banner.
+- Cores do tema.
+- Slogan.
+- Cidade.
+- Status.
+- Horário de funcionamento.
+- Modalidades de entrega ou retirada.
+- Promoções.
+- Categorias.
+- Produtos.
+- Imagens.
+- Preços.
+- Adicionais.
+- Ingredientes.
+- Ordem dos blocos permitidos.
+
+Hoje esses dados vêm de mocks. Futuramente os mesmos dados devem vir de banco, API e painel administrativo.
+
+Novas lojas devem ser criadas adicionando novos mocks ou configurações, não duplicando telas, rotas ou componentes.
 
 ## Jornada Completa
 
@@ -625,3 +682,4 @@ Antes de implementar qualquer tela do cliente final, esta documentação deve se
 - Erros esperados.
 - Regras de navegação.
 - Relação com conversão e redução de atrito.
+- Separação entre Storefront Engine e Store Configuration.

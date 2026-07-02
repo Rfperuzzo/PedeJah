@@ -33,6 +33,8 @@ Funcionalidades:
 
 Objetivo: criar a primeira experiência pública que o cliente final verá ao acessar o link ou QR Code de uma loja contratante.
 
+Diretriz: a experiência deve ser construída como Storefront Engine reutilizável, alimentada por Store Configuration. A Jah Burgers é apenas mock/demo; a mesma estrutura deve poder renderizar outros estabelecimentos no futuro sem duplicar telas ou componentes.
+
 Prioridade: alta.
 
 Dependências:
@@ -50,6 +52,7 @@ Funcionalidades previstas:
 - Modalidades de atendimento.
 - Categorias.
 - Produtos.
+- Estrutura configurável para múltiplos tipos de estabelecimento.
 - Detalhes de produto em etapa futura.
 - Carrinho em etapa futura.
 - Checkout em etapa futura.
@@ -272,6 +275,33 @@ Observações:
 
 - O dourado/amarelo foi tratado como cor de tema da Jah Burgers, não como cor global do PedeJah.
 - A implementação prioriza identidade da loja, descoberta rápida, categorias e produtos destacados.
+
+### Sprint 2.2 - Princípio SaaS Multiestabelecimento
+
+Status: Concluída.
+
+Objetivo:
+
+- Atualizar a documentação para registrar que o PedeJah é uma plataforma SaaS multiestabelecimento e que o Storefront deve separar Engine reutilizável de Configuration por loja.
+
+Checklist:
+
+- Atualizar `docs/PROJECT.md`.
+- Atualizar `docs/ARCHITECTURE.md`.
+- Atualizar `docs/DESIGN.md`.
+- Atualizar `docs/AI_RULES.md`.
+- Atualizar `docs/PRODUCT_RULES.md`.
+- Atualizar `docs/STOREFRONT.md`.
+- Atualizar `docs/DECISIONS.md`.
+- Atualizar `docs/ROADMAP.md`.
+- Não implementar código.
+- Não alterar componentes, páginas ou estilos.
+- Não instalar bibliotecas.
+
+Observações:
+
+- A Jah Burgers permanece apenas como mock/demo.
+- Novas lojas devem ser adicionadas por mocks ou configurações, não por duplicação de telas ou componentes.
 
 ### Sprint 3 - Design System Implementável
 

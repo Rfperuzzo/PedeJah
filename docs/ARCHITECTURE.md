@@ -22,6 +22,8 @@ Status: futuro. Não é o foco inicial do frontend.
 
 Status: foco inicial do frontend.
 
+O frontend público da loja deve ser tratado como Storefront Engine, não como uma tela específica para a Jah Burgers ou para hamburguerias. A mesma rota e a mesma estrutura devem conseguir renderizar lojas diferentes no futuro a partir de mocks, banco, API ou painel administrativo.
+
 Loja de demonstração:
 
 - Nome: Jah Burgers.
@@ -30,6 +32,8 @@ Loja de demonstração:
 - Status: Aberta.
 - Tempo estimado: 35-45 min.
 - Modalidades: Entrega e Retirada.
+
+A Jah Burgers é apenas mock/demo. Novas lojas devem ser adicionadas por novos mocks ou configurações, não por duplicação de telas ou criação de componentes específicos por segmento.
 
 ### 3. Painel Administrativo do Lojista
 
@@ -82,6 +86,28 @@ types/
 docs/
 ```
 
+## Storefront Engine vs Store Configuration
+
+O Storefront deve manter separação explícita entre engine reutilizável e configuração da loja.
+
+Storefront Engine:
+
+- Componentes e comportamentos compartilhados: `StoreHero`, `StoreInfo`, `StoreSearch`, `CategorySelector`, `ProductGrid`, `ProductList`, `ProductCard`, `ProductDetail`, `Cart`, `Checkout` e `OrderTracking`.
+- Deve funcionar para hamburguerias, açaíterias, pizzarias, cafeterias, confeitarias, restaurantes, food trucks e deliverys locais.
+- Não deve conter regra de negócio específica de uma loja ou segmento dentro de componente visual.
+- Deve consumir contratos de dados estáveis, sem depender se a origem é mock, API, banco ou painel administrativo.
+
+Store Configuration:
+
+- Dados variáveis por estabelecimento: nome, logo, banner, cores do tema, slogan, cidade, status, horários, modalidades de entrega ou retirada, promoções, categorias, produtos, imagens, preços, adicionais, ingredientes e ordem dos blocos permitidos.
+- Hoje pode ser representada por mocks locais.
+- Futuramente deve ser alimentada por banco, API e painel administrativo sem exigir reescrita dos componentes visuais.
+
+Regra arquitetural:
+
+- Nunca criar componente específico apenas para hamburgueria, açaíteria ou pizzaria se um componente genérico resolver.
+- Novas lojas devem ser criadas adicionando dados de configuração, não duplicando rotas, telas ou componentes com a mesma responsabilidade.
+
 ## Estrutura dos Componentes
 
 Componentes devem ser organizados por nível de reutilização:
@@ -95,6 +121,7 @@ Regras:
 - Componentes devem ter responsabilidade clara.
 - Componentes de UI não devem conhecer regras de negócio.
 - Componentes de domínio podem combinar UI com dados do domínio.
+- Componentes visuais do Storefront devem conhecer apenas contratos genéricos de loja, categoria, produto, carrinho, checkout e pedido.
 - Evitar componentes muito grandes.
 - Evitar criar biblioteca interna antes de haver uso concreto.
 
@@ -103,6 +130,7 @@ Regras:
 Fase inicial:
 
 - Página pública de loja com dados fictícios ou mockados.
+- Mocks devem representar configurações de loja, não componentes específicos de uma loja.
 - Estado local apenas quando necessário para interação simples.
 - Nenhum backend real.
 - Nenhuma API real.

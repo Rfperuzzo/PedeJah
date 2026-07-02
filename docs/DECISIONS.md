@@ -330,3 +330,31 @@ Consequências:
 - A implementação deve continuar modular, com componentes pequenos e reutilizáveis.
 - Referências geradas por ferramentas visuais devem orientar composição, hierarquia e sensação de produto, mas não devem ser copiadas literalmente.
 - Novos blocos visuais importantes devem continuar exigindo referência aprovada ou sprint específica de exploração.
+
+## 2026-07-02 - Storefront Engine Separada da Configuração da Loja
+
+Status: Aprovada.
+
+Contexto:
+
+O PedeJah está evoluindo a partir de uma loja fictícia de demonstração, a Jah Burgers, mas o produto não deve ser orientado a uma loja específica. Como SaaS, a plataforma precisa atender múltiplos tipos de estabelecimentos, como hamburguerias, açaíterias, pizzarias, cafeterias, confeitarias, restaurantes, food trucks e deliverys locais.
+
+Decisão:
+
+Separar explicitamente o Storefront em duas camadas: Storefront Engine e Store Configuration.
+
+A Storefront Engine concentra componentes e comportamentos reutilizáveis, como `StoreHero`, `StoreInfo`, `StoreSearch`, `CategorySelector`, `ProductGrid`, `ProductList`, `ProductCard`, `ProductDetail`, `Cart`, `Checkout` e `OrderTracking`.
+
+A Store Configuration concentra dados variáveis por cliente, como nome, logo, banner, cores, slogan, cidade, status, horários, modalidades, promoções, categorias, produtos, imagens, preços, adicionais, ingredientes e ordem dos blocos permitidos.
+
+Motivo:
+
+Essa separação evita duplicação de componentes e impede que regras específicas da Jah Burgers ou de qualquer segmento sejam acopladas à interface. Também prepara o produto para um futuro painel administrativo, no qual lojistas poderão alterar dados e identidade sem exigir novas telas ou componentes.
+
+Consequências:
+
+- A Jah Burgers permanece apenas como mock/demo.
+- Novas lojas devem ser adicionadas por mocks ou configurações, não por duplicação de telas.
+- Componentes visuais do Storefront devem consumir contratos de dados e não conhecer a origem dos dados.
+- Hoje os dados podem vir de mocks; futuramente devem vir de banco, API e painel administrativo.
+- Componentes específicos por segmento só devem existir se houver necessidade real que um componente genérico não resolva.

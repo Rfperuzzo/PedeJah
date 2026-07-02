@@ -19,9 +19,18 @@ Este documento define como agentes de IA devem trabalhar no projeto PedeJah. Ele
 - Sempre registrar decisões importantes em `docs/DECISIONS.md`.
 - Sempre atualizar `docs/ROADMAP.md` ao concluir uma sprint.
 - Sempre validar no Chrome DevTools após alterações visuais.
+- Sempre que uma Sprint alterar a interface do Storefront, utilizar o Chrome DevTools antes e depois da implementação para validar a experiência em diferentes viewports.
+- Nunca utilizar o Chrome DevTools apenas para verificar overflow; analisar também UX, UI, alinhamento, responsividade, contraste e consistência visual.
 - Sempre verificar desktop, tablet e mobile após alterações visuais.
 - Sempre verificar console do navegador após alterações visuais.
 - Sempre verificar overflow horizontal após alterações visuais.
+- Sempre que houver referência visual aprovada, como mockup do Stitch ou futura referência oficial, a Sprint de interface só pode ser considerada concluída se o resultado estiver visualmente equivalente à referência aprovada.
+- Se houver diferença relevante de composição, hierarquia, espaçamento, responsividade ou acabamento visual em relação à referência aprovada, continuar refinando antes de concluir a Sprint.
+- Antes de criar qualquer novo componente visual do Storefront, verificar se já existe um componente equivalente que possa ser reutilizado ou adaptado, preservando a arquitetura LEGO e evitando duplicação de componentes com a mesma responsabilidade.
+- Nunca tratar a Jah Burgers como centro do produto; ela é apenas mock/demo da plataforma SaaS multiestabelecimento.
+- Nunca criar componente específico apenas para hamburgueria, açaíteria, pizzaria ou outro segmento se um componente genérico do Storefront resolver.
+- Nunca colocar regra de negócio específica de uma loja dentro de componente visual.
+- Sempre separar Storefront Engine de Store Configuration em decisões de interface, dados e arquitetura.
 - Sempre listar arquivos criados e modificados na entrega.
 
 ## Antes de Começar Uma Sprint
@@ -66,6 +75,7 @@ Essas respostas não precisam aparecer na interface, mas devem orientar decisõe
 - Rodar `npm run lint` quando houver código.
 - Rodar `npm run build` quando houver código.
 - Validar no Chrome DevTools quando houver mudança visual.
+- Quando a mudança visual envolver o Storefront, tratar o Chrome DevTools como inspetor de qualidade visual antes e depois da implementação, não apenas como ferramenta de debug.
 - Atualizar `docs/ROADMAP.md` com status da sprint.
 - Atualizar `docs/DECISIONS.md` se houver decisão nova.
 - Informar limitações, alertas e validações não realizadas.
@@ -86,6 +96,10 @@ Dependências só podem ser adicionadas quando:
 - Seguir `docs/PRODUCT_RULES.md`.
 - Antes de implementar qualquer tela do cliente final, consultar `docs/STOREFRONT.md` para garantir consistência da navegação e da experiência do usuário.
 - Nenhum componente visual importante deve ser implementado sem uma referência visual previamente aprovada, salvo quando o objetivo da sprint for especificamente explorar conceitos de design.
+- Quando houver referência visual aprovada, garantir equivalência visual de composição, hierarquia, espaçamento, responsividade e acabamento antes de concluir a sprint.
+- Antes de criar componentes visuais do Storefront, procurar componente equivalente existente para reutilização ou adaptação.
+- Componentes do Storefront devem consumir dados de loja, categoria, produto, carrinho, checkout e pedido sem conhecer se a origem é mock, API, banco ou painel administrativo.
+- Novas lojas devem ser adicionadas por mocks ou configurações, não por duplicação de telas, rotas ou componentes visuais.
 - Não copiar layouts das referências.
 - Não criar hero, footer, cards ou CTA sem sprint aprovada.
 - Não alterar Header sem solicitação explícita.
