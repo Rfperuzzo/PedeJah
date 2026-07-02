@@ -382,3 +382,26 @@ Consequências:
 - A Jah Burgers permanece apenas como demo.
 - O Storefront deve continuar separado entre Engine reutilizável e Store Configuration.
 - Qualquer decisão que afaste o projeto dessa visão deve ser revista antes da implementação.
+
+## 2026-07-02 - Produtos Simples e Personalizáveis no Storefront
+
+Status: Aprovada.
+
+Contexto:
+
+Nem todo produto do Storefront precisa abrir uma tela extra. Bebidas e itens simples geram atrito desnecessário se exigirem navegação para detalhe, enquanto burgers, combos e produtos com adicionais precisam de uma etapa de personalização antes de entrar no pedido.
+
+Decisão:
+
+Adicionar a regra `requiresCustomization` ao modelo de produto. Produtos com `requiresCustomization: true` abrem a rota reutilizável de detalhe do produto. Produtos com `requiresCustomization: false` não abrem página extra e podem usar ação direta ou feedback visual enquanto o carrinho real não existir.
+
+Motivo:
+
+Essa decisão reduz cliques para itens simples e preserva clareza para produtos complexos. A regra também mantém a Storefront Engine genérica, baseada em configuração de produto, sem criar páginas específicas por item ou por nicho.
+
+Consequências:
+
+- A rota de detalhe deve ser reutilizável para qualquer produto personalizável.
+- Produtos simples, como bebidas, não devem forçar navegação extra.
+- Dados de ingredientes, remoções, adicionais, observação e ação direta continuam vindo da configuração/mock.
+- Carrinho real e checkout continuam fora de escopo até sprint própria.

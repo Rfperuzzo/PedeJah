@@ -15,6 +15,21 @@ export type StorefrontCategory = {
   productCount: number;
 };
 
+export type StorefrontAddon = {
+  id: string;
+  name: string;
+  price: string;
+};
+
+export type StorefrontAddonGroup = {
+  id: string;
+  name: string;
+  description: string;
+  minSelected: number;
+  maxSelected: number;
+  options: StorefrontAddon[];
+};
+
 export type StorefrontProduct = {
   id: string;
   name: string;
@@ -24,6 +39,12 @@ export type StorefrontProduct = {
   imageTone: "gold" | "ember" | "smoke";
   imageUrl: string;
   imageAlt: string;
+  requiresCustomization: boolean;
+  ingredients: string[];
+  removableIngredients: string[];
+  addonGroups: StorefrontAddonGroup[];
+  allowObservation: boolean;
+  directAddEnabled: boolean;
   badge?: string;
   featured?: boolean;
 };
@@ -54,10 +75,23 @@ export type StorefrontStore = {
   products: StorefrontProduct[];
 };
 
+const burgerExtras: StorefrontAddonGroup = {
+  id: "extras",
+  name: "Adicionais",
+  description: "Deixe o burger ainda mais completo.",
+  minSelected: 0,
+  maxSelected: 3,
+  options: [
+    { id: "bacon", name: "Bacon crocante", price: "+ R$ 5,00" },
+    { id: "cheddar-extra", name: "Cheddar extra", price: "+ R$ 4,00" },
+    { id: "smash-extra", name: "Smash extra", price: "+ R$ 9,00" }
+  ]
+};
+
 export const jahBurgersStore: StorefrontStore = {
   name: "Jah Burgers",
   type: "Hamburgueria artesanal",
-  city: "Florianópolis - SC",
+  city: "Florianopolis - SC",
   description: "Burgers artesanais, carnes selecionadas e combos feitos para chegar no ponto certo.",
   status: "open",
   statusLabel: "Aberto agora",
@@ -66,15 +100,15 @@ export const jahBurgersStore: StorefrontStore = {
   initials: "JB",
   heroLabel: "Artesanal no ponto",
   heroTitle: "Burgers\nPremium",
-  heroActionLabel: "Ver cardápio",
+  heroActionLabel: "Ver cardapio",
   heroImageUrl:
     "https://lh3.googleusercontent.com/aida-public/AB6AXuCYel09QWbXdPSI5pVmbW8cZ9hEuFZzDOSVwoH3dfb0DTe4n8ivHqLbmyTe85aEnnxMYgio9U9Wwa_7SjC9ahWEVYzy9d_I3l3ACpqJQEwfG4sYQv8PTAreeOY9zpErtCOYWWeUtde7fm676Ak6agaXVI9TO23Lw1fcCn0Uf_E1O2Ej6wtY3beUL4cc6Nr1c6W2wCeLqIGo3tVAlU3iEdYpCPSYeOHgnyV3ko-P9BHQuA2bmdFv2YMC4Q",
   searchPlaceholder: "Buscar burger, combo ou bebida",
-  experienceTitle: "A experiência",
+  experienceTitle: "A experiencia",
   experienceText:
-    "Uma combinação precisa de fogo, blend artesanal e serviço rápido. Transformamos o burger em uma experiência de compra premium.",
-  featuredTitle: "Cardápio em destaque",
-  featuredSubtitle: "Escolhas rápidas para pedir melhor",
+    "Uma combinacao precisa de fogo, blend artesanal e servico rapido. Transformamos o burger em uma experiencia de compra premium.",
+  featuredTitle: "Cardapio em destaque",
+  featuredSubtitle: "Escolhas rapidas para pedir melhor",
   signatureLabel: "Especial da casa",
   signatureProductId: "jah-king",
   theme: {
@@ -87,10 +121,10 @@ export const jahBurgersStore: StorefrontStore = {
   },
   categories: [
     { id: "destaques", name: "Destaques", productCount: 1 },
-    { id: "burgers", name: "Burgers", productCount: 1 },
+    { id: "burgers", name: "Burgers", productCount: 2 },
     { id: "combos", name: "Combos", productCount: 1 },
-    { id: "acompanhamentos", name: "Acompanhamentos", productCount: 0 },
-    { id: "bebidas", name: "Bebidas", productCount: 0 }
+    { id: "acompanhamentos", name: "Acompanhamentos", productCount: 1 },
+    { id: "bebidas", name: "Bebidas", productCount: 1 }
   ],
   products: [
     {
@@ -102,7 +136,26 @@ export const jahBurgersStore: StorefrontStore = {
       imageTone: "gold",
       imageUrl:
         "https://lh3.googleusercontent.com/aida-public/AB6AXuC9hIPLYt0jukiVkVN3DJmHWDqvOCsz22uyVVy_mhLe943wYe5AQf8gKQq0mU3UhmZPBk0VCNMMrTM3bbJHgfv5mBTLTquqjTGZ51fc5YYp4e_DMfXeyXWUJ7Z-ZKXQZbh25sXi8ZBvRFHPl2-lQQrnbs6sYirEu6VtSnL7ynYfhuYVvu7V7ogmr8dNVYsoUjQcyvC1j6JFxj0zVfNQ1y6iVQsWsCTwrjKWROs4ZaBqscrCotCigNdGgg",
-      imageAlt: "Burger artesanal alto com queijo derretido e pão brioche em luz dramática.",
+      imageAlt: "Burger artesanal alto com queijo derretido e pao brioche em luz dramatica.",
+      requiresCustomization: true,
+      ingredients: ["Pao brioche", "Double smash", "Cheddar cremoso", "Cebola caramelizada", "Molho da casa"],
+      removableIngredients: ["Cebola caramelizada", "Molho da casa"],
+      addonGroups: [
+        {
+          id: "ponto-carne",
+          name: "Ponto da carne",
+          description: "Escolha como prefere o preparo.",
+          minSelected: 1,
+          maxSelected: 1,
+          options: [
+            { id: "ao-ponto", name: "Ao ponto", price: "R$ 0,00" },
+            { id: "bem-passado", name: "Bem passado", price: "R$ 0,00" }
+          ]
+        },
+        burgerExtras
+      ],
+      allowObservation: true,
+      directAddEnabled: false,
       badge: "Mais vendido",
       featured: true
     },
@@ -116,6 +169,12 @@ export const jahBurgersStore: StorefrontStore = {
       imageUrl:
         "https://lh3.googleusercontent.com/aida-public/AB6AXuAjJXaMUoKRF1XqwRZ14yntoSc_dvTrIT2_gUk6bbKz91lkWOGFXJa0bkl9QzW2UR1I4tJJGrDsYFFFN3Ym1UsRubY5BrBEXdTltGtnDLEi1qLOerCvIjGtzD-DVAsgQ3RJMUNV-B1fwvTVf7G4f-6gtGTZbtytUAXuhLPgfhcGY4egxVZVQNL7t7T9TJivU7HrVRZ-ut611VwEw3Uu3zbv4DZhhBUdTYe6uD_76VmkNizqH_RxxbDjBQ",
       imageAlt: "Burger gourmet com queijo e folhas em fotografia escura premium.",
+      requiresCustomization: true,
+      ingredients: ["Pao brioche", "Blend bovino", "Queijo prato", "Bacon crocante", "Barbecue artesanal"],
+      removableIngredients: ["Bacon crocante", "Barbecue artesanal"],
+      addonGroups: [burgerExtras],
+      allowObservation: true,
+      directAddEnabled: false,
       badge: "Novo",
       featured: true
     },
@@ -128,9 +187,73 @@ export const jahBurgersStore: StorefrontStore = {
       imageTone: "smoke",
       imageUrl:
         "https://lh3.googleusercontent.com/aida-public/AB6AXuDkf36P2-VLDW2RDTkfrDGSAFIPcvEWxYJMb6N4Mhwg1ezdNdGgRdJbWZ0OhLPnYtjuJgvJmt30QdZVbIaTZnCJCby0bC-rJ8-MQ20-mzvDrEaXL3jBaku5u7sHQJrkLSbMbKUxv831fI93bCUbb5QVAC6vcitJlvlKjUtF9Ia457KNb4jbTJyUu6VryKOrMigLqLnLUei8-YmGJUUVh0_ecPFx8W5BC0ti9DK3HQWUlHhj-I3u-i7v0g",
-      imageAlt: "Burger premium com pão escuro e acabamento sofisticado.",
+      imageAlt: "Burger premium com pao escuro e acabamento sofisticado.",
+      requiresCustomization: true,
+      ingredients: ["Jah King", "Fritas finas", "Refrigerante lata"],
+      removableIngredients: [],
+      addonGroups: [
+        {
+          id: "bebida",
+          name: "Bebida do combo",
+          description: "Escolha uma bebida para acompanhar.",
+          minSelected: 1,
+          maxSelected: 1,
+          options: [
+            { id: "coca", name: "Coca-Cola lata", price: "R$ 0,00" },
+            { id: "guarana", name: "Guarana lata", price: "R$ 0,00" },
+            { id: "agua", name: "Agua sem gas", price: "R$ 0,00" }
+          ]
+        },
+        {
+          id: "molhos",
+          name: "Molhos extras",
+          description: "Escolha ate dois molhos.",
+          minSelected: 0,
+          maxSelected: 2,
+          options: [
+            { id: "maionese", name: "Maionese da casa", price: "+ R$ 2,00" },
+            { id: "barbecue", name: "Barbecue artesanal", price: "+ R$ 2,00" }
+          ]
+        }
+      ],
+      allowObservation: true,
+      directAddEnabled: false,
       badge: "Combo",
       featured: true
+    },
+    {
+      id: "fritas-crocantes",
+      name: "Fritas Crocantes",
+      description: "Porcao individual de fritas finas com sal da casa.",
+      price: "R$ 14,90",
+      categoryId: "acompanhamentos",
+      imageTone: "gold",
+      imageUrl:
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuDkf36P2-VLDW2RDTkfrDGSAFIPcvEWxYJMb6N4Mhwg1ezdNdGgRdJbWZ0OhLPnYtjuJgvJmt30QdZVbIaTZnCJCby0bC-rJ8-MQ20-mzvDrEaXL3jBaku5u7sHQJrkLSbMbKUxv831fI93bCUbb5QVAC6vcitJlvlKjUtF9Ia457KNb4jbTJyUu6VryKOrMigLqLnLUei8-YmGJUUVh0_ecPFx8W5BC0ti9DK3HQWUlHhj-I3u-i7v0g",
+      imageAlt: "Acompanhamento em visual premium escuro.",
+      requiresCustomization: false,
+      ingredients: ["Batata", "Sal da casa"],
+      removableIngredients: [],
+      addonGroups: [],
+      allowObservation: false,
+      directAddEnabled: true
+    },
+    {
+      id: "coca-cola",
+      name: "Coca-Cola Lata",
+      description: "Refrigerante gelado, 350 ml.",
+      price: "R$ 7,90",
+      categoryId: "bebidas",
+      imageTone: "smoke",
+      imageUrl:
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuCYel09QWbXdPSI5pVmbW8cZ9hEuFZzDOSVwoH3dfb0DTe4n8ivHqLbmyTe85aEnnxMYgio9U9Wwa_7SjC9ahWEVYzy9d_I3l3ACpqJQEwfG4sYQv8PTAreeOY9zpErtCOYWWeUtde7fm676Ak6agaXVI9TO23Lw1fcCn0Uf_E1O2Ej6wtY3beUL4cc6Nr1c6W2wCeLqIGo3tVAlU3iEdYpCPSYeOHgnyV3ko-P9BHQuA2bmdFv2YMC4Q",
+      imageAlt: "Bebida gelada em composicao escura premium.",
+      requiresCustomization: false,
+      ingredients: [],
+      removableIngredients: [],
+      addonGroups: [],
+      allowObservation: false,
+      directAddEnabled: true
     }
   ]
 };

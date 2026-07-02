@@ -5,7 +5,7 @@ const eslintConfig = [
   ...nextCoreWebVitals,
   ...nextTypeScript,
   {
-    ignores: [".next/**", "node_modules/**", "out/**"]
+    ignores: [".next/**", ".chrome-validation/**", "node_modules/**", "out/**"]
   }
 ];
 

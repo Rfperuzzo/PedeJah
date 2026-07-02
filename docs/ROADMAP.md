@@ -303,6 +303,33 @@ Observações:
 - A Jah Burgers permanece apenas como mock/demo.
 - Novas lojas devem ser adicionadas por mocks ou configurações, não por duplicação de telas ou componentes.
 
+### Sprint 2.3 - Interação de Produtos no Storefront
+
+Status: Concluída.
+
+Objetivo:
+
+- Implementar a primeira regra real de interação com produtos: produtos simples não abrem detalhe; produtos personalizáveis usam uma rota dinâmica reutilizável.
+
+Checklist:
+
+- Atualizar o mock da Jah Burgers com `requiresCustomization`, ingredientes, ingredientes removíveis, grupos de adicionais, observação e ação direta.
+- Criar rota dinâmica `app/loja/jah-burgers/produto/[productId]/page.tsx`.
+- Criar componentes modulares para detalhe de produto.
+- Fazer `ProductCard` navegar somente para produtos personalizáveis.
+- Manter produtos simples com feedback visual sem carrinho real.
+- Não implementar carrinho real.
+- Não implementar checkout.
+- Não implementar backend, API ou banco.
+- Não instalar dependências.
+- Validar com lint e build.
+
+Observações:
+
+- A rota de detalhe foi gerada apenas para produtos personalizáveis.
+- Produtos simples redirecionam para o cardápio se acessados diretamente por URL.
+- A validação visual por Chrome headless foi tentada, mas o Chrome local falhou por processo de GPU inutilizável.
+
 ### Sprint 3 - Design System Implementável
 
 Status: Planejada.
